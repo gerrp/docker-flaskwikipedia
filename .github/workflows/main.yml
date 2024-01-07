@@ -43,7 +43,7 @@ jobs:
         trivy ${{ secrets.DOCKERHUB_USERNAME }}/wiki:${{ github.run_number }} \
         --severity CRITICAL \
         --exit-code 1 \
-        --fail-on '3'
+        --fail-on '3,5'
           
       -
         name: Docker push
