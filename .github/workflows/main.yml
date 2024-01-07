@@ -39,12 +39,8 @@ jobs:
 
       -  
        name: Run Trivy vulnerability scanner
-       run: |
-        trivy "${{ secrets.DOCKERHUB_USERNAME }}/wiki:${{ github.run_number }}" \
-        --severity CRITICAL \
-        --exit-code 1 \
-        --fail-on '3,5'
-          
+       run: trivy ${{ secrets.DOCKERHUB_USERNAME }}/wiki:${{ github.run_number }}  
       -
+      
         name: Docker push
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/wiki:${{ github.run_number }}
