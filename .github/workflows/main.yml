@@ -40,7 +40,7 @@ jobs:
       -  
        name: Run Trivy vulnerability scanner
        run: |
-        trivy ${{ secrets.DOCKERHUB_USERNAME }}/wiki:${{ github.run_number }} \
+        trivy "${{ secrets.DOCKERHUB_USERNAME }}/wiki:${{ github.run_number }}" \
         --severity CRITICAL \
         --exit-code 1 \
         --fail-on '3,5'
