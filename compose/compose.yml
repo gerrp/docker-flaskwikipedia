@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  wiki:
+    image: gerrp/pythonflask:2.0
+    container_name: wiki-compose
+    ports:
+      - "5000:5000"
