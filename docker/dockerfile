@@ -1,25 +1,25 @@
-#IMAGEN A UTILIZAR
+#Imagen
 FROM python:3.8 
 
-#CREACION DE DIRECTORIO DE TRABAJO 
+#Creación de directorio
 RUN mkdir /app
-#ESTABLECEMOS EL DIRECTORIO DE TRABAJO
+#Establecemos el workdir
 WORKDIR /app
-#COPIAMOS LOS ARCHIVOS LOCALES A NUESTRO CONTENEDOR
-ADD . /app/
+#Copia de archivos locales a contenedor
+COPY . /app/
 
-#INSTALAMOS LOS REQUISITOS DE LA APLICACION
-RUN pip install -r requirements.txt
+#Instalación de requisitos de la aplicación
+RUN pip install --no-cache-dir -r requirements.txt
 
-#DEFINIMOS LA VARIABLE DE ENTORNO FLASK_APP PARA LLAMARLA EN EL CMD
+#Variable de entorno
 ENV FLASK_APP=app.py
 
-#EXPONEMOS EL PUERTO A UTILIZAR
+#Puerto expuesto
 EXPOSE 5000
 
-#DEFINIMOS EL ENTRYPOINT DESDE EL CUAL SE EJECUTARAN LOS COMANDOS DEL CMD
+#Entrypoint para CMD
 ENTRYPOINT ["python"]
 
-#EJECUTAMOS LA APLICACION
+#Correr aplicación
 CMD ["-m", "flask", "run", "--host", "0.0.0.0"]
-#
+#######
