@@ -37,6 +37,8 @@ Implementé 3 recursos:
 
 ## Helm
 Empaqueté los recursos anteriormente mencionados con distintas variables ( para la visualización o modificación de las mismas -> helm/chart/**values.yaml** )
+                                                                                                            
+Para la implementación vamos a necesitar tener levantado un **cluster** de **kubernetes**, utilizamos ``` minikube start ```
 
 Instalamos el paquete de helm situandonos en **/helm** y utilizando ``` helm install wiki-helm ./chart ```
 
